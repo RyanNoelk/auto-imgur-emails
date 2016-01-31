@@ -26,7 +26,7 @@ with open('last_sent.txt') as f:
 
 recent_items = list(reversed(all_pictures[:5]))
 if recent_items and last_img != all_pictures[0].link:
-    body = u"All the pictures! Tell you amazing Boyfriend if something is broken!\r\n\r\n"
+    body = u"All the pictures! Tell your amazing Boyfriend if something is broken!\r\n\r\n"
     for item in recent_items:
         link = item.link
         if not last_img:
