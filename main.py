@@ -24,9 +24,8 @@ with open('last_sent.txt') as f:
     if last_img:
         last_img = last_img[0]
 
-recent_items = list(reversed(all_pictures[:5]))
+recent_items = list(reversed(all_pictures[:10]))
 if recent_items and last_img != all_pictures[0].link:
-    body = u"All the pictures! Tell your amazing Boyfriend if something is broken!\r\n\r\n"
     for item in recent_items:
         link = item.link
         if not last_img:
@@ -38,8 +37,9 @@ if recent_items and last_img != all_pictures[0].link:
     if recent_items[-1]:
         with open("last_sent.txt", "w") as f:
             f.write(recent_items[-1].link)
-
-if last_img == all_pictures[0].link:
+if body:
+    body = u"All the pictures! Tell your amazing Boyfriend if something is broken!\r\n\r\n" + body
+else:
     body = u"Oooo Noooies. There aren't any new pictures today. That's a really sad story. :(("
 
 if len(all_pictures) > 200:
