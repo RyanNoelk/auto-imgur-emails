@@ -10,7 +10,7 @@ import config
 
 
 last_img = None
-subject = u'Hallo mein süB freundin'
+subject = u'Hallo meine süBe freundin'
 body = u""
 
 client = ImgurClient(config.CLIENT_ID,
