@@ -6,9 +6,9 @@ from email.mime.text import MIMEText
 from email.header import Header
 from random import randrange
 from smtplib import SMTP_SSL
-import config
+import config, os
 
-
+save_file = config.PATH
 last_img = None
 subject = u'Hallo meine süBe freundin'
 body = u""
@@ -19,7 +19,7 @@ client = ImgurClient(config.CLIENT_ID,
                      config.REFRESH_TOKEN)
 all_pictures = client.get_gallery_favorites(config.USERNAME)
 
-with open('last_sent.txt') as f:
+with open(save_file) as f:
     last_img = f.readlines()
     if last_img:
         last_img = last_img[0]
@@ -35,7 +35,7 @@ if recent_items and last_img != all_pictures[0].link:
         if link == last_img:
             last_img = None
     if recent_items[-1]:
-        with open("last_sent.txt", "w") as f:
+        with open(save_file, "w") as f:
             f.write(recent_items[-1].link)
 if body:
     body = u"All the pictures! Tell your amazing Boyfriend if something is broken!\r\n\r\n" + body
