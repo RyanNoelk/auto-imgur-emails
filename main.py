@@ -48,6 +48,8 @@ if len(all_pictures) > 200:
         old_item = old_item[:-5] + '.gif'
     body += u"\r\n\r\nHere's a random old image: " + old_item + "\r\n"
 
+body += u"\r\n\r\nLove you!"
+
 message = MIMEText(body, _charset="UTF-8")
 message['Subject'] = Header(subject, "utf-8")
 
