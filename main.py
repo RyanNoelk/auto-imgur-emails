@@ -29,9 +29,10 @@ if recent_items and last_img != all_pictures[0].link:
     for item in recent_items:
         link = item.link
         if not last_img:
+            clean_link = link
             if link and link[-3:] == 'gif' and link[-5] == 'h':
-                link = link[:-5] + '.gif'
-            body += link + "\r\n"
+                clean_link = link[:-5] + '.gif'
+            body += clean_link + "\r\n"
         if link == last_img:
             last_img = None
     if recent_items[-1]:

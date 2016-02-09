@@ -2,6 +2,7 @@
 *.pyc
 *.sqlite
 config.py
+last_sent.txt
 
 .idea
 .project
