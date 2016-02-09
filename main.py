@@ -24,15 +24,10 @@ with open(save_file) as f:
     if last_img:
         last_img = last_img[0]
 
-print last_img
-print
-print
+
 recent_items = all_pictures[:10]
 for item in recent_items:
     link = item.link
-    print
-    print link
-    print last_img
     if link == last_img:
         break
     if link and link[-3:] == 'gif' and link[-5] == 'h':
