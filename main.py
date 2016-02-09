@@ -24,20 +24,23 @@ with open(save_file) as f:
     if last_img:
         last_img = last_img[0]
 
-recent_items = list(reversed(all_pictures[:10]))
-if recent_items and last_img != all_pictures[0].link:
-    for item in recent_items:
-        link = item.link
-        if not last_img:
-            clean_link = link
-            if link and link[-3:] == 'gif' and link[-5] == 'h':
-                clean_link = link[:-5] + '.gif'
-            body += clean_link + "\r\n"
-        if link == last_img:
-            last_img = None
-    if recent_items[-1]:
-        with open(save_file, "w") as f:
-            f.write(recent_items[-1].link)
+print last_img
+print
+print
+recent_items = all_pictures[:10]
+for item in recent_items:
+    link = item.link
+    print
+    print link
+    print last_img
+    if link == last_img:
+        break
+    if link and link[-3:] == 'gif' and link[-5] == 'h':
+        link = link[:-5] + '.gif'
+    body += link + "\r\n"
+if recent_items[0]:
+    with open(save_file, "w") as f:
+        f.write(recent_items[0].link)
 if body:
     body = u"All the pictures! Tell your amazing Boyfriend if something is broken!\r\n\r\n" + body
 else:
